@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import PassiveAggressiveClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 
-df = pd.read_csv("FakeNews\\news.csv")  # Reads the data
+df = pd.read_csv("Data-Science-Projects\Basic\FakeNews\\news.csv")  # Reads the data
 
 labels = df.label
 
