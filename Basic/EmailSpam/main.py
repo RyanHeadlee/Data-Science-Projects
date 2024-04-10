@@ -5,7 +5,7 @@ from sklearn import svm
 from sklearn.model_selection import GridSearchCV
 
 # Load Dataset
-df = pd.read_csv("Basic\\EmailSpam\\spam.csv", encoding="ISO-8859-1")
+df = pd.read_csv(".\\spam.csv", encoding="ISO-8859-1")
 
 # Split into Training and Test data
 x = df.v2  # Email Text
