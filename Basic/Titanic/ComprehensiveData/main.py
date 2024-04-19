@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from scipy import stats
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import explained_variance_score
+from sklearn.metrics import r2_score
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -112,7 +112,7 @@ model = LinearRegression()
 model.fit(x_train, y_train)
 predict = model.predict(x_test)
 
-# Print explained variance (closer to 1 is more accurate)
+# Print r^2 score (closer to 1 is more accurate)
 print(
-    "Explained Variance: {}".format(round(explained_variance_score(y_test, predict), 5))
+    "r^2 Score: {}".format(round(r2_score(y_test, predict), 5))
 )  # Using more variables (features) proved to result in far more accurate results (.57 -> .79)
