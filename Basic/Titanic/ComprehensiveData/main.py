@@ -102,8 +102,8 @@ x_train, x_test, y_train, y_test = train_test_split(
 )
 
 # Convert to array and reshape
-x_train = np.array(x_train).reshape(-1, 3)
-x_test = np.array(x_test).reshape(-1, 3)
+x_train = np.array(x_train).reshape(-1, len(df_new_train.columns) - 1)
+x_test = np.array(x_test).reshape(-1, len(df_new_train.columns) - 1)
 y_train = np.array(y_train).reshape(-1, 1)
 y_test = np.array(y_test).reshape(-1, 1)
 
