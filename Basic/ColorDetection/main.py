@@ -3,6 +3,7 @@ import pandas as pd
 import argparse
 
 # Arguments via command line
+# Ex: python .\main.py -i "<filename to image>"
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="Image Path")
 args = vars(ap.parse_args())

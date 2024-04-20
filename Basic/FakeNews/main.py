@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import itertools
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import PassiveAggressiveClassifier
@@ -29,7 +28,7 @@ pac.fit(tfidf_train, y_train)
 # Predict on test set, calculate accuracy
 y_pred = pac.predict(tfidf_test)
 score = accuracy_score(y_test, y_pred)
-print("Accuracy: {}".format(round(score * 100, 2)))
+print("Accuracy: {}%".format(round(score * 100, 2)))
 
 # Build confusion matrix
 confusion_array = confusion_matrix(y_test, y_pred, labels=["FAKE", "REAL"])
