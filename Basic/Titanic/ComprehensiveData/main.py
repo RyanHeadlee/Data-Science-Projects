@@ -8,9 +8,6 @@ from scipy import stats
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
-import warnings
-
-warnings.filterwarnings("ignore")
 
 # Read the dataset
 df_train = pd.read_csv(".\\train.csv")
@@ -72,9 +69,11 @@ df_train = df_train.drop(
 # Applying log transformations (due to the positive skew)
 df_train["SalePrice"] = np.log(df_train["SalePrice"])
 df_train["GrLivArea"] = np.log(df_train["GrLivArea"])
-df_train.loc[df_train["TotalBsmtSF"] > 0, "TotalBsmtSF"] = np.log(
-    df_train["TotalBsmtSF"]
-)  # Only apply log if TotalBsmtSF is greater than zero
+with np.errstate(divide="ignore"):
+    df_train["TotalBsmtSF"] = df_train["TotalBsmtSF"].astype(np.float64)
+    df_train.loc[df_train["TotalBsmtSF"] > 0, "TotalBsmtSF"] = np.log(
+        df_train["TotalBsmtSF"]
+    )  # Only apply log if TotalBsmtSF is greater than zero
 
 # # Histogram and normal probability plot
 # sns.distplot(df_train["SalePrice"], fit=norm)
