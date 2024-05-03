@@ -98,7 +98,7 @@ for dataset in combine:
             age_guess = df_guess.median()
             guess_ages[i, j] = int(age_guess / 0.5 + 0.5) * 0.5
 
-    # For every sex and class that has null age pass in the geuss_age
+    # For every sex and class that has null age pass in the guess_age
     for i in range(0, 2):
         for j in range(0, 3):
             dataset.loc[
